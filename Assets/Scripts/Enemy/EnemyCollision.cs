@@ -11,8 +11,12 @@ public class EnemyCollision : MonoBehaviour {
             EnemyStatus enemyStatus = GetComponent<EnemyStatus>();
 
             enemyStatus.isCurrupt = false;
-        } 
+        }
         else if (other.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
