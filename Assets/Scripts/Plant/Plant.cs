@@ -48,13 +48,14 @@ public class Plant: MonoBehaviour
 			    healling();
 			}
 		}
-		if(other.tag=="Player" && plant_status==A.Length-1 && Grow_Withered==false)
-		{
-			Instantiate(Newplant,new Vector3(transform.position.x+5,transform.position.y,transform.position.z), transform.rotation);
-			plant_status=0;
-			healling();
-		}
-	}
+        if (other.tag == "Player" && plant_status == A.Length - 1 && Grow_Withered == false)
+        {
+            plant_status = 0;
+            gameObject.GetComponent<Renderer>().material = A[plant_status];
+            Instantiate(Newplant, new Vector3(transform.position.x + 5, transform.position.y, transform.position.z), transform.rotation);
+            StartCoroutine("Grow");
+        }
+    }
 
 	IEnumerator Grow()
 	{
@@ -72,13 +73,13 @@ public class Plant: MonoBehaviour
 	{
 		yield return new WaitForSeconds(Witheredtime);
 
-		if(Grow_Withered==true && plant_status>0)
+		if(Grow_Withered && plant_status > 0)
 		{
 			plant_status=plant_status-1;
 			gameObject.GetComponent<Renderer>().material= B[plant_status];
 			StartCoroutine("Withered");
 		}
-		else if(plant_status<=0)
+		else if(Grow_Withered && plant_status <= 0)
 		{
 			Destroy(gameObject);
 		}

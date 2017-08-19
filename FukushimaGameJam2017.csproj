@@ -86,9 +86,12 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyStatus.cs" />
     <Compile Include="Assets\Scripts\Plant\Plant.cs" />
+    <Compile Include="Assets\Scripts\Player\Fire.cs" />
+    <Compile Include="Assets\Scripts\Player\fly.cs" />
+    <Compile Include="Assets\Scripts\Player\Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\Shot.cs" />
     <Compile Include="Assets\SecEnd.cs" />
-    <Compile Include="Assets\Shot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
