@@ -11,14 +11,14 @@ public class Plant: MonoBehaviour
 	public float Witheredtime;
 	public bool Grow_Withered;
 	public GameObject Newplant;
-	int plant_status;
+	public int plant_status;
 
 	void Start ()
 	{
 		StartCoroutine("Grow");
 	}
 
-	void healling()
+	public void healling()
 	{
 		gameObject.GetComponent<Renderer>().material= A[plant_status];
 		Grow_Withered=false;
@@ -41,7 +41,7 @@ public class Plant: MonoBehaviour
 			    Wither();
 			}
 		}
-		if(other.tag == "Heal" || other.tag == "Player")
+		if(other.gameObject.tag == "Heal")
 		{
 			if(Grow_Withered==true)
 			{
@@ -52,7 +52,7 @@ public class Plant: MonoBehaviour
         {
             plant_status = 0;
             gameObject.GetComponent<Renderer>().material = A[plant_status];
-            Instantiate(Newplant, new Vector3(transform.position.x + 5, transform.position.y, transform.position.z), transform.rotation);
+            Instantiate(Newplant, new Vector3(Random.Range(-45, 45), 0, Random.Range(-45, 45)), transform.rotation);
             StartCoroutine("Grow");
         }
     }

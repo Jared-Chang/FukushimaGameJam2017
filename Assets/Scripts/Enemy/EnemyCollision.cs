@@ -16,9 +16,5 @@ public class EnemyCollision : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        else if (other.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
     }
 }

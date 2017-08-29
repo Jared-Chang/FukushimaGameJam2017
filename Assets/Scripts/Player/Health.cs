@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
-    private int health=100;
+public class Health : MonoBehaviour
+{
+    public int health=4;
 
-    void OnCollisionEnter(Collision aaa) 
+    bool isColliding = false;
+
+    void OnTriggerEnter(Collider other) 
     {
-        if (aaa.gameObject.name == "Enemy") 
+        if (isColliding) { return; }
+
+        if (other.gameObject.tag == "Enemy") 
         {
-            Debug.Log("123");
-            health -= 10;
+            isColliding = true;
+            health--;
         }
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void Update()
+    {
+        isColliding = false;
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class CameraMovement : MonoBehaviour
     {
         offset = transform.position - target.position;
     }
-
 
     void FixedUpdate()
     {

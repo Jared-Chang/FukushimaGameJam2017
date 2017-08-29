@@ -5,20 +5,18 @@ using UnityEngine;
 public class EnemyMaterialChanger : MonoBehaviour {
 
     public Material IncurruptMaterial;
-
+	public bool wow = false;
 	void Update ()
     {
         EnemyStatus enemyStatus = GetComponent<EnemyStatus>();
         
-		if (!enemyStatus.isCurrupt)
+		if (!enemyStatus.isCurrupt &&  wow == false)
         {
             GameObject enemyMesh = transform.Find("EnemyMesh").gameObject;
-
-            Renderer renderer = enemyMesh.GetComponent<Renderer>();
+			wow = true;
+			Renderer renderer = enemyMesh.GetComponent<Renderer>();
 
             renderer.material  = IncurruptMaterial;
-
-            Destroy(this);
         }
 	}
 }
